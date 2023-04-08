@@ -1,4 +1,5 @@
 .token
+.last-dry-run
 *.csv
 *.tsv
 config.json

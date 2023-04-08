@@ -13,19 +13,41 @@ from time import sleep
 from typing import List, Dict, Optional
 
 CONFIG_FILE = Path(__file__).with_name('config.json')
+LAST_DRY_RUN_FILE = Path(__file__).with_name('.last-dry-run')
+
+
+class DryRunBeforeActualRunException(Exception):
+    pass
+
+
+def check_last_dry_run():
+    if LAST_DRY_RUN_FILE.is_file():
+        last_run = float(LAST_DRY_RUN_FILE.read_text())
+        now = time.time()
+        if now - (30 * 60) < last_run:
+            return
+    msg = 'You gotta do a dry run before doing the actual run 🙈🙈🙈'
+    raise DryRunBeforeActualRunException(msg)
+
+
+def write_last_dry_run():
+    now = time.time()
+    LAST_DRY_RUN_FILE.write_text(str(now))
 
 
 class Mail:
     def __init__(self, config: Dict, dry_run: Optional[Path]):
-        if not dry_run:
-            raise SystemExit
         self.dry_run = dry_run
-        # considering the same user and pass for smtp an imap
         self.mail_user = config['mail_user']
-        self.mail_pass = getpass()
-        self.mail_host = config['mail_host']
-        self.smtp = self.setup_smtp()
-        self.imap = self.setup_imap()
+        if dry_run:
+            write_last_dry_run()
+        else:
+            check_last_dry_run()
+            # considering the same user and pass for smtp an imap
+            self.mail_pass = getpass()
+            self.mail_host = config['mail_host']
+            self.smtp = self.setup_smtp()
+            self.imap = self.setup_imap()
 
     def setup_smtp(self):
         if self.dry_run:
