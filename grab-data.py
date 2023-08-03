@@ -58,7 +58,7 @@ def main():
         financial_year_start = fs_data['financialYearStart']
         if financial_year_start == args.financial_year_start or not args.financial_year_start:
             address_set = set()
-            for element in data[fs_id]['protected_data']['email_addresses']:
+            for element in data[fs_id]['protected_data']['data']['email_addresses']:
                 for category in args.categories:
                     if category in element['usages']:
                         address_set.add(element["address"])
