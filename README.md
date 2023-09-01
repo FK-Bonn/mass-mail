@@ -35,7 +35,7 @@ Der Versand von E-Mails an ausgewählte Fachschaftsadressen geschieht in drei Sc
 1. Vorbereiten des Templates
 2. Vorbreiten der Fachschaftsdaten (id, name, adressen, ggf. weitere Felder)
 3. Versand der E-Mails (dry-run)
-$. Versand der E-Mails (in echt)
+4. Versand der E-Mails (in echt)
 
 
 ### Vorbereiten des Templates
