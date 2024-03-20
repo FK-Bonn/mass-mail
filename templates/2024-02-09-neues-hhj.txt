@@ -1,0 +1,29 @@
+🤖 Ein neues Haushaltsjahr hat begonnen – das alte will abgeschlossen werden
+
+Liebe Fachschaft {fs_name},
+
+am 1. Januar hat euer neues Haushaltsjahr begonnen.
+Zumindest laut der uns vorliegenden Informationen.
+
+Das heißt, es ist Zeit, das alte Haushaltsjahr abzuschließen:
+Mit einer Kassenprüfung und einer Haushaltsrechnung!
+
+Auf unserer Webseite findet ihr einen Muster-Kassenprüfungsbericht und eine annotierte Muster-Haushaltsrechnung[1].
+Diese erklärt euch, wie eine Haushaltsrechnung aufgebaut ist und was alles enthalten sein muss.
+Lest die enthaltenen Anmerkungen bitte vollständig, da es wahrscheinlich ist, dass etwas Neues für euch dabei ist.
+
+Seht euch bitte außerdem die Anmerkungen zu euren vergangenen Kassenprüfungsberichten und Haushaltsrechnungen auf der Datendrehscheibe[2] an, um zu vermeiden, dass ihr vergangene Fehler wiederholt.
+
+
+Euren Haushaltsplan für das neue Haushaltsjahr, eueren Kassenprüfungsbericht und eure Haushaltsrechnung für das vergangene Haushaltsjahr könnt ihr uns dann direkt zuschicken. 
+
+
+Falls Fragen zur Erstellung der Haushaltsrechnung, zu Kassenprüfungen, oder genereller Art auftauchen, helfen wir euch gern weiter.
+
+Viele Grüße
+Euer FSK
+
+[1] https://www.asta-bonn.de/Fachschaftenreferat#Dokumente
+[2] https://fsen.datendrehschei.be/#{fs_id}
+
+_Diese E-Mail wurde automatisch erstellt. Wir sind die Speerspitze der Digitalisierung._
