@@ -15,6 +15,17 @@ from typing import List, Dict, Optional
 CONFIG_FILE = Path(__file__).with_name('config.json')
 LAST_DRY_RUN_FILE = Path(__file__).with_name('.last-dry-run')
 
+PERMISSION_NAMES = {
+    'read_files': '👀 Dateien anzeigen',
+    'read_permissions': '👀 Berechtigungen anzeigen',
+    'write_permissions': '✏️ Berechtigungen ändern',
+    'read_public_data': '👀 FS-Daten anzeigen',
+    'write_public_data': '✏️ FS-Daten ändern',
+    'read_protected_data': '👀 geschützte FS-Daten anzeigen',
+    'write_protected_data': '️✏️ geschützte FS-Daten ändern',
+    'submit_payout_request': '️✏️ Anträge stellen',
+    'locked': '🔒 Rechte-Bearbeitung nur durch FSK',
+}
 
 class DryRunBeforeActualRunException(Exception):
     pass
@@ -88,12 +99,25 @@ class Mail:
             self.smtp.send_message(message)
             self.imap.append('Sent', '\\Seen', imaplib.Time2Internaldate(time.time()), text.encode('utf8'))
 
+def format_permissions(permissions_json):
+    data = json.loads(permissions_json)
+    formatted = ''
+    for permissions in sorted(data, key=lambda x: x['username']):
+        formatted += f'» {permissions["username"]}:\n'
+        for key, substitution in PERMISSION_NAMES.items():
+            if permissions[key]:
+                formatted += f'  {substitution}\n'
+        formatted += '\n'
+    return formatted
+
 
 def load_data(data_file: Path) -> List[Dict]:
     elements = []
     with data_file.open() as f:
         reader = DictReader(f, delimiter='\t')
         for line in reader:
+            if 'permissions_json' in line:
+                line['permissions'] = format_permissions(line['permissions_json'])
             elements.append(line)
     return elements
 

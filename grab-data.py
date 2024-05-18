@@ -1,8 +1,10 @@
 #! /usr/bin/env python3
 import argparse
 import getpass
+import json
 from pathlib import Path
 from typing import Optional, Dict
+from collections import defaultdict
 
 import requests
 
@@ -48,11 +50,16 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--categories', choices=['finanzen', 'fsl', 'kontakt'], required=True, nargs='+')
     parser.add_argument('--financial-year-start')
+    parser.add_argument('--permissions', action='store_true')
     args = parser.parse_args()
     token = get_token()
     data = get_fsdata(token)
+    permissions = get_permissions(token)
     public_data = get_public_data()
-    print('fs_id\tfs_name\taddresses')
+    print('fs_id\tfs_name\taddresses', end='')
+    if args.permissions:
+        print('\tpermissions_json', end='')
+    print('')
     for fs_id, fs_data in public_data['studentBodies'].items():
         fs_name = fs_data['name']
         financial_year_start = fs_data['financialYearStart']
@@ -63,13 +70,26 @@ def main():
                     if category in element['usages']:
                         address_set.add(element["address"])
             addresses = ",".join(sorted(address_set))
-            print(f'{fs_id}\t{fs_name}\t{addresses}')
+            permissions_json = json.dumps(permissions[fs_id])
+            print(f'{fs_id}\t{fs_name}\t{addresses}', end='')
+            if args.permissions:
+                print(f'\t{permissions_json}', end='')
+            print('')
 
 
 def get_fsdata(token: str) -> Dict:
     response = requests.get(API_BASE + '/data', headers=headers(token))
     data = response.json()
     return data
+
+def get_permissions(token: str) -> Dict:
+    response = requests.get(API_BASE + '/user', headers=headers(token))
+    data = response.json()
+    data_for_fs = defaultdict(list)
+    for username, data_for_user in data.items():
+        for permission in data_for_user['permissions']:
+            data_for_fs[permission['fs']].append({**permission, 'username': username})
+    return data_for_fs
 
 
 def get_public_data() -> Dict:
