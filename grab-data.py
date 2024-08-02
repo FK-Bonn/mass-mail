@@ -45,25 +45,39 @@ def get_token():
     TOKEN_CACHE_FILE.write_text(token)
     return token
 
+def get_open_request(fs_id: str, afsg_requests: list[dict], semester_filter: Optional[str]) -> str:
+    if not semester_filter:
+        return ''
+    for request in afsg_requests:
+        if request['fs'] == fs_id and request['semester'] == semester_filter and request['status'] in ('EINGEREICHT', 'GESTELLT'):
+            return request['request_id']
+
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--categories', choices=['finanzen', 'fsl', 'kontakt'], required=True, nargs='+')
     parser.add_argument('--financial-year-start')
+    parser.add_argument('--open-afsg')
     parser.add_argument('--permissions', action='store_true')
     args = parser.parse_args()
     token = get_token()
     data = get_fsdata(token)
     permissions = get_permissions(token)
     public_data = get_public_data()
+    afsg_requests = get_afsg_requests()
     print('fs_id\tfs_name\taddresses', end='')
     if args.permissions:
         print('\tpermissions_json', end='')
+    if args.open_afsg:
+        print('\trequest_id', end='')
     print('')
     for fs_id, fs_data in public_data['studentBodies'].items():
         fs_name = fs_data['name']
         financial_year_start = fs_data['financialYearStart']
-        if financial_year_start == args.financial_year_start or not args.financial_year_start:
+        open_request = get_open_request(fs_id, afsg_requests, args.open_afsg)
+        include_this_fs = (financial_year_start == args.financial_year_start or not args.financial_year_start)
+        include_this_fs = include_this_fs and (not args.open_afsg or open_request)
+        if include_this_fs:
             address_set = set()
             for element in data[fs_id]['protected_data']['data']['email_addresses']:
                 for category in args.categories:
@@ -74,6 +88,8 @@ def main():
             print(f'{fs_id}\t{fs_name}\t{addresses}', end='')
             if args.permissions:
                 print(f'\t{permissions_json}', end='')
+            if args.open_afsg:
+                print(f'\t{open_request}', end='')
             print('')
 
 
@@ -94,6 +110,12 @@ def get_permissions(token: str) -> Dict:
 
 def get_public_data() -> Dict:
     response = requests.get(BASE + '/data/data.json')
+    data = response.json()
+    return data
+
+
+def get_afsg_requests() -> list[dict]:
+    response = requests.get(BASE + '/api/v1/payout-request/afsg')
     data = response.json()
     return data
 
