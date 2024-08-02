@@ -45,6 +45,7 @@ def get_token():
     TOKEN_CACHE_FILE.write_text(token)
     return token
 
+
 def get_open_request(fs_id: str, afsg_requests: list[dict], semester_filter: Optional[str]) -> str:
     if not semester_filter:
         return ''
@@ -53,11 +54,21 @@ def get_open_request(fs_id: str, afsg_requests: list[dict], semester_filter: Opt
             return request['request_id']
 
 
+def has_no_request(fs_id: str, afsg_requests: list[dict], semester_filter: Optional[str]) -> bool:
+    if not semester_filter:
+        return False
+    for request in afsg_requests:
+        if request['fs'] == fs_id and request['semester'] == semester_filter:
+            return False
+    return True
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--categories', choices=['finanzen', 'fsl', 'kontakt'], required=True, nargs='+')
     parser.add_argument('--financial-year-start')
     parser.add_argument('--open-afsg')
+    parser.add_argument('--no-afsg')
     parser.add_argument('--permissions', action='store_true')
     args = parser.parse_args()
     token = get_token()
@@ -75,8 +86,10 @@ def main():
         fs_name = fs_data['name']
         financial_year_start = fs_data['financialYearStart']
         open_request = get_open_request(fs_id, afsg_requests, args.open_afsg)
+        no_request = has_no_request(fs_id, afsg_requests, args.no_afsg)
         include_this_fs = (financial_year_start == args.financial_year_start or not args.financial_year_start)
         include_this_fs = include_this_fs and (not args.open_afsg or open_request)
+        include_this_fs = include_this_fs and (not args.no_afsg or no_request)
         if include_this_fs:
             address_set = set()
             for element in data[fs_id]['protected_data']['data']['email_addresses']:
@@ -97,6 +110,7 @@ def get_fsdata(token: str) -> Dict:
     response = requests.get(API_BASE + '/data', headers=headers(token))
     data = response.json()
     return data
+
 
 def get_permissions(token: str) -> Dict:
     response = requests.get(API_BASE + '/user', headers=headers(token))
