@@ -66,6 +66,18 @@ Beispiele:
 
 # Fachschaften, deren Haushaltsjahr am 01.04. beginnt, mit der finanzen-Adresse ausgeben
 ./grab-data.py --financial-year-start 01.04. --categories finanzen
+
+# Fachschaften, die einen offenen AFSG-Antrag für das Sommersemester 2024 haben, mit der finanzen-Adresse ausgeben
+# (gibt zusätzliche Spalte request_id aus)
+./grab-data.py --open-afsg 2024-SoSe --categories finanzen
+
+# Fachschaften, die einen offenen AFSG-Antrag für das Sommersemester 2024 haben, mit der finanzen-Adresse ausgeben
+# (gibt zusätzliche Spalte request_id aus)
+./grab-data.py --open-afsg 2024-SoSe --categories finanzen
+
+# Für jede Fachschaft die Berechtigungen abrufen und mit der kontakt-Adresse ausgeben
+# (gibt zusätzliche Spalte permissions aus, welche von send-mail.py in Tabellenform gebracht wird)
+./grab-data.py --categories kontakt --permissions
 ```
 
 Weitere benötigte Spalten können manuell hinzugefügt werden.
