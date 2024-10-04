@@ -74,7 +74,6 @@ def main():
     token = get_token()
     data = get_fsdata(token)
     permissions = get_permissions(token)
-    public_data = get_public_data()
     afsg_requests = get_afsg_requests()
     print('fs_id\tfs_name\taddresses', end='')
     if args.permissions:
@@ -82,9 +81,9 @@ def main():
     if args.open_afsg:
         print('\trequest_id', end='')
     print('')
-    for fs_id, fs_data in public_data['studentBodies'].items():
-        fs_name = fs_data['name']
-        financial_year_start = fs_data['financialYearStart']
+    for fs_id, fs_data in data.items():
+        fs_name = fs_data['base']['data']['name']
+        financial_year_start = fs_data['base']['data']['financial_year_start']
         open_request = get_open_request(fs_id, afsg_requests, args.open_afsg)
         no_request = has_no_request(fs_id, afsg_requests, args.no_afsg)
         include_this_fs = (financial_year_start == args.financial_year_start or not args.financial_year_start)
@@ -92,7 +91,7 @@ def main():
         include_this_fs = include_this_fs and (not args.no_afsg or no_request)
         if include_this_fs:
             address_set = set()
-            for element in data[fs_id]['protected_data']['data']['email_addresses']:
+            for element in fs_data['protected']['data']['email_addresses']:
                 for category in args.categories:
                     if category in element['usages']:
                         address_set.add(element["address"])
@@ -120,12 +119,6 @@ def get_permissions(token: str) -> Dict:
         for permission in data_for_user['permissions']:
             data_for_fs[permission['fs']].append({**permission, 'username': username})
     return data_for_fs
-
-
-def get_public_data() -> Dict:
-    response = requests.get(BASE + '/data/data.json')
-    data = response.json()
-    return data
 
 
 def get_afsg_requests() -> list[dict]:
