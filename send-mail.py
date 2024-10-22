@@ -99,15 +99,24 @@ class Mail:
             self.smtp.send_message(message)
             self.imap.append('Sent', '\\Seen', imaplib.Time2Internaldate(time.time()), text.encode('utf8'))
 
+
+def has_any_permission(permissions: dict):
+    for key, substitution in PERMISSION_NAMES.items():
+        if permissions[key]:
+            return True
+    return False
+
+
 def format_permissions(permissions_json):
     data = json.loads(permissions_json)
     formatted = ''
     for permissions in sorted(data, key=lambda x: x['username']):
-        formatted += f'» {permissions["username"]}:\n'
-        for key, substitution in PERMISSION_NAMES.items():
-            if permissions[key]:
-                formatted += f'  {substitution}\n'
-        formatted += '\n'
+        if has_any_permission(permissions):
+            formatted += f'» {permissions["username"]}:\n'
+            for key, substitution in PERMISSION_NAMES.items():
+                if permissions[key]:
+                    formatted += f'  {substitution}\n'
+            formatted += '\n'
     return formatted
 
 
