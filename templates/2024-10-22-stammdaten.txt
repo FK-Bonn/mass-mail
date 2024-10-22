@@ -1,0 +1,36 @@
+🤖 Bitte überprüft, ob eure Daten in der Datendrehscheibe aktuell sind
+
+Liebe Fachschaft {fs_name},
+
+in der Datendrehscheibe [1] sind öffentliche und interne Daten
+von euch hinterlegt.
+
+Bitte überprüft, ob diese Daten noch aktuell sind.
+Falls nicht, aktualisiert sie bitte.
+
+
+**Obacht**
+
+Um die öffentlichen Daten anzeigen zu können, müsst ihr
+eingeloggt sein und die Berechtigung "👀 FS-Daten anzeigen"
+besitzen; zum Editieren der Daten wird die Berechtigung
+"✏️ FS-Daten ändern" benötigt.
+
+Aktualisierungen werden sofort übernommen und angezeigt.
+
+
+Um die internen Daten anzeigen zu können, müsst ihr eingeloggt
+sein und die Berechtigung "👀 geschützte FS-Daten anzeigen"
+besitzen; zum Editieren der Daten wird die Berechtigung
+"✏️ geschützte FS-Daten ändern" benötigt.
+
+Aktualisierungen der internen Daten müssen erst von uns
+bestätigt werden, bevor sie angezeigt werden.
+
+
+Viele Grüße
+Euer FSK
+
+[1] https://fsen.datendrehschei.be/#{fs_id}
+
+_Diese E-Mail wurde automatisch erstellt. Wir sind die Speerspitze der Digitalisierung._
