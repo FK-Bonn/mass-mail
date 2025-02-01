@@ -1,0 +1,28 @@
+Ein neues Haushaltsjahr steht an
+
+Liebe Fachschaft {fs_name},
+
+am 1. April beginnt euer nächstes Haushaltsjahr.
+Zumindest laut der uns vorliegenden Informationen.
+
+Bis dahin muss eure {gremium} einen Haushaltsplan für das nächste Haushaltsjahr beschlossen haben.
+
+Eure Finanzreferent*in ist dafür zuständig, den Entwurf für den neuen Haushaltsplan zu erstellen.
+
+Zeigt diese E-Mail deshalb bitte auch eurer Finanzreferent*in 🙂
+
+Auf unserer Webseite findet ihr Erläuterungen zur Funktion und zur Erstellung eines ordentlichen Haushaltsplans sowie einen Muster-Haushaltsplan[1].
+Dieser erklärt euch, wie ein Haushaltsplan aufgebaut ist und was alles enthalten sein muss.
+Lest die enthaltenen Anmerkungen bitte vollständig, da es wahrscheinlich ist, dass etwas Neues für euch dabei ist.
+
+Seht euch bitte außerdem die Anmerkungen zu euren vergangenen Haushaltsplänen auf der Datendrehscheibe[2] an, um zu vermeiden, dass ihr vergangene Fehler wiederholt.
+
+Falls Fragen zur Erstellung des Haushaltsplans oder genereller Art auftauchen, helfen wir euch gern weiter.
+
+Viele Grüße
+Euer FSK
+
+[1] https://asta-bonn.de/de/referate/fachschaftenreferat/finanzen#dokumente
+[2] https://fsen.datendrehschei.be/#{fs_id}
+
+_Diese E-Mail wurde automatisch erstellt. Wir sind die Speerspitze der Digitalisierung._

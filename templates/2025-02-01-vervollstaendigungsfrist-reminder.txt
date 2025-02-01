@@ -1,0 +1,25 @@
+AFSG-Antrag {request_id} (Wintersemester 2022/23): Vervollständigungsfrist läuft ab
+
+Liebe Fachschaft {fs_name},
+
+Ihr habt den AFSG-Antrag {request_id} für das Wintersemester 2022/23
+gestellt. Bislang liegen uns allerdings noch nicht alle notwendigen
+Unterlagen korrekt vor.
+
+Die Frist für die Vervollständigung von AFSG-Anträgen für das
+Wintersemester 2022/23 läuft am *31. März 2025* ab.
+
+Welche Dokumente noch fehlen bzw. welche Mängel ihr noch beheben
+müsst, könnt ihr hier nachsehen:
+> https://fsen.datendrehschei.be/#{fs_id}
+
+
+Bitte reicht alle fehlenden Dokumente ein bevor die Frist abläuft.
+Andernfalls verfällt euer Antrag.
+
+Sollten Fragen auftauchen, meldet euch gern bei uns.
+
+Viele Grüße
+Euer FSK
+
+_Diese E-Mail wurde automatisch erstellt. Wir sind die Speerspitze der Digitalisierung._
