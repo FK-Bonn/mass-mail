@@ -1,0 +1,36 @@
+Die AFSG-Antragsfrist für das Wintersemester 2023/24 läuft ab
+
+Liebe Fachschaft {fs_name},
+
+bislang habt ihr noch keinen Antrag auf Allgemeine Fachschaftengelder
+(AFSG) für das Wintersemester 2023/24 gestellt.
+
+Die Antragsfrist für AFSG für das Wintersemester 2023/24 läuft am
+*31. März 2025* ab.
+
+Falls ihr noch einen Antrag auf AFSG für das Wintersemester 2023/24
+stellen wollt, müsst ihr das bis zu diesem Datum getan haben.
+
+Dies tut ihr über die Datendrehscheibe:
+> https://fsen.datendrehschei.be/#{fs_id}
+
+Dort benötigt ihr einen Account mit der Berechtigung, Anträge zu stellen.
+Falls niemand von euch so etwas hat, schreibt uns eine E-Mail von
+eurer Fachschafts-E-Mail-Adresse aus mit den Namen der Personen,
+die einen bekommen sollen, und wir legen euch den Account bzw. die Accounts an.
+
+Obacht: Falls ihr aktuell nicht auszahlungsfähig seid, könnt ihr trotzdem den 
+Antrag stellen!
+
+Nachdem ihr über die Datenschrehscheibe den Antrag gestellt habt,
+müsst ihr uns ggf. noch weitere Unterlagen zusenden, damit der Antrag 
+vollständig wird. Unterlagen für AFSG-Anträge für das Wintersemester 2023/24
+müssen uns bis zum 31. März 2026 vollständig vorliegen.
+Die Datendrehscheibe (https://fsen.datendrehschei.be/#{fs_id})
+verrät euch jederzeit, welche Unterlagen von euch noch fehlen oder
+nachzubessern sind.
+
+Viele Grüße
+Euer FSK
+
+_Diese E-Mail wurde automatisch erstellt. Wir sind die Speerspitze der Digitalisierung._
