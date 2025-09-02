@@ -116,6 +116,8 @@ def get_permissions(token: str) -> Dict:
     data = response.json()
     data_for_fs = defaultdict(list)
     for username, data_for_user in data.items():
+        if username == 'finanzreferat':
+            continue
         for permission in data_for_user['permissions']:
             data_for_fs[permission['fs']].append({**permission, 'username': username})
     return data_for_fs
