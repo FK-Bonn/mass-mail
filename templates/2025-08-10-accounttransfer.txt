@@ -1,0 +1,23 @@
+🤖 Eure Accounts auf der Datendrehscheibe müssen noch migriert werden
+
+Liebe Fachschaft {fs_name},
+
+in der Datendrehscheibe [1] haben die folgenden Personen
+Berechtigungen für eure Fachschaft.
+
+Loggt euch mal ein und migriert euren Account zum Login mit Uni-ID.
+Die Frist dafür ist am 1. August abgelaufen.
+Demnächst löschen wir alle Alt-Accounts.
+Dann müsst ihr wieder neu Berechtigungen beantragen.
+
+Liste der Personen mit Berechtigungen für die Fachschaft {fs_name}:
+
+{permissions}
+
+
+Viele Grüße
+Euer FSK
+
+[1] https://fsen.datendrehschei.be/#{fs_id}
+
+_Diese E-Mail wurde automatisch erstellt. Wir sind die Speerspitze der Digitalisierung._
