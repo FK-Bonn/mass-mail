@@ -118,8 +118,9 @@ def get_permissions(token: str) -> Dict:
     for username, data_for_user in data.items():
         if username == 'finanzreferat':
             continue
+        full_name = data_for_user['full_name']
         for permission in data_for_user['permissions']:
-            data_for_fs[permission['fs']].append({**permission, 'username': username})
+            data_for_fs[permission['fs']].append({**permission, 'username': username, 'full_name': full_name})
     return data_for_fs
 
 

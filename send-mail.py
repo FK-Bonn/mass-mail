@@ -112,11 +112,13 @@ def format_permissions(permissions_json):
     formatted = ''
     for permissions in sorted(data, key=lambda x: x['username']):
         if has_any_permission(permissions):
-            formatted += f'» {permissions["username"]}:\n'
+            formatted += f'» {permissions["full_name"]} ({permissions["username"]}):\n'
             for key, substitution in PERMISSION_NAMES.items():
                 if permissions[key]:
                     formatted += f'  {substitution}\n'
             formatted += '\n'
+    if formatted == '':
+        return '_Niemand hat aktuell Berechtigungen_'
     return formatted
 
 
