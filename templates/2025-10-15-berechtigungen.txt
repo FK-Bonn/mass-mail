@@ -1,0 +1,26 @@
+🤖 Überprüft bitte die Berechtigungen in der Datendrehscheibe
+
+Liebe Fachschaft {fs_name},
+
+in der Datendrehscheibe [1] haben die folgenden Personen
+die folgenden Berechtigungen für eure Fachschaft.
+Bitte prüft, ob das noch so sein soll.
+
+Personen mit der Berechtigung "✏️ Berechtigungen ändern"
+können anderen Personen Berechtigungen geben und entziehen.
+
+Im Notfall könnt ihr uns auch von eurer Fachschafts-E-Mail-
+Adresse schreiben, und wir passen dann Berechtigungen für
+euch an.
+
+Liste der Berechtigungen für die Fachschaft {fs_name}:
+
+{permissions}
+
+
+Viele Grüße
+Euer FSK
+
+[1] https://fsen.datendrehschei.be/#{fs_id}
+
+_Diese E-Mail wurde automatisch erstellt. Wir sind die Speerspitze der Digitalisierung._
