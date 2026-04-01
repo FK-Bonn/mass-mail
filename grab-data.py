@@ -84,6 +84,9 @@ def main():
     for fs_id, fs_data in data.items():
         fs_name = fs_data['base']['data']['name']
         financial_year_start = fs_data['base']['data']['financial_year_start']
+        if fs_data['base']['data']['financial_year_override']:
+            overriden_current = fs_data['base']['data']['financial_year_override']['current']['date_start']
+            financial_year_start = overriden_current[8:10]+'.'+overriden_current[5:7]+'.'
         open_request = get_open_request(fs_id, afsg_requests, args.open_afsg)
         no_request = has_no_request(fs_id, afsg_requests, args.no_afsg)
         include_this_fs = (financial_year_start == args.financial_year_start or not args.financial_year_start)
